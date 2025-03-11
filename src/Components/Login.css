@@ -1,0 +1,21 @@
+.container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #094786;
+}
+
+.form-container {
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    width: 40%;
+}
+
+.form-title {
+    margin-bottom: 1rem;
+    color: #000000;
+}
