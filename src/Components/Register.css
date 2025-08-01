@@ -1,0 +1,19 @@
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  height: 100vh;
+}
+
+.form-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  width: 40%;
+}
+
+.form-title {
+  margin-bottom: 1rem;
+  color: #007bff;
+}
