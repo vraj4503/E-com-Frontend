@@ -5,15 +5,15 @@ const ProductList = ({ products }) => {
   const sortedProducts = products.sort((a, b) => a._id - b._id);
 
   return (
-    <div className="shop-list-container">
+    <div className="productlist-main-container">
       {sortedProducts.map(product => (
-        <ShopProductCard key={product._id} product={product} />
+        <ProductlistCard key={product._id} product={product} />
       ))}
     </div>
   );
 };
 
-const ShopProductCard = ({ product }) => {
+const ProductlistCard = ({ product }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleImageError = () => {
@@ -23,23 +23,23 @@ const ShopProductCard = ({ product }) => {
   };
 
   return (
-    <div className="shop-product-card">
-      <div className="shop-product-image-wrap">
+    <div className="productlist-card">
+      <div className="productlist-image-wrap">
         {product.image && product.image.length > 0 && (
           <img
             src={`https://e-com-backend-w8yy.onrender.com/uploads/${product.image[currentImageIndex]}`}
             alt={product.name}
-            className="shop-product-image"
+            className="productlist-image"
             onError={handleImageError}
           />
         )}
       </div>
-      <div className="shop-product-details">
-        <h3 className="shop-product-title">{product.name}</h3>
-        <p className="shop-product-desc">{product.description}</p>
-        <div className="shop-product-price-row">
-          <span className="shop-product-price">₹{product.price}</span>
-          <button className="shop-product-buy-btn">Buy Now</button>
+      <div className="productlist-details">
+        <h3 className="productlist-title">{product.name}</h3>
+        <p className="productlist-desc">{product.description}</p>
+        <div className="productlist-price-row">
+          <span className="productlist-price">₹{product.price}</span>
+          <button className="productlist-buy-btn">Buy Now</button>
         </div>
       </div>
     </div>

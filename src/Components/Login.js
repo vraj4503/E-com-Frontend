@@ -37,54 +37,54 @@ function Login() {
     };
 
     return (
-        <div className="register-main">
+        <div className="login-section-main">
             <ToastContainer />
-            <div className="register-card">
-                <div className="register-left">
-                    <h2 className='form-title'>Sign In</h2>
+            <div className="login-section-card">
+                <div className="login-section-left">
+                    <h2 className='login-section-title'>Sign In</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="email" className="form-label">Email Address</label>
+                        <div className="login-section-group">
+                            <label htmlFor="email" className="login-section-label">Email Address</label>
                             <input
                                 type="email"
                                 placeholder="Enter your email address"
-                                className="form-control"
+                                className="login-section-control"
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="password" className="form-label">Password</label>
+                        <div className="login-section-group">
+                            <label htmlFor="password" className="login-section-label">Password</label>
                             <input
                                 type="password"
                                 placeholder="Enter your password"
-                                className="form-control"
+                                className="login-section-control"
                                 id="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
                         </div>
-                        <div className="form-group checkbox-group">
+                        <div className="login-section-checkbox-row">
                             <input
                                 type="checkbox"
                                 id="rememberMe"
                                 checked={remember}
                                 onChange={() => setRemember(!remember)}
                             />
-                            <label htmlFor="rememberMe" className="checkbox-label">Remember me</label>
+                            <label htmlFor="rememberMe" className="login-section-checkbox-label">Remember me</label>
                         </div>
-                        <button type="submit" className="btn btn-gradient">Sign In</button>
+                        <button type="submit" className="login-section-btn">Sign In</button>
                     </form>
-                    <div className="divider">
+                    <div className="login-section-divider">
                         <span>Don't have an account?</span>
                     </div>
-                    <Link to='/register' className="btn btn-outline">Register</Link>
+                    <Link to='/register' className="login-section-outline-btn">Register</Link>
                 </div>
-                <div className="register-right">
-                    <div className="register-logo">
+                <div className="login-section-right">
+                    <div className="login-section-logo">
                         <img src={require('./register-illustration.png')} alt="Login Illustration" />
                     </div>
                 </div>

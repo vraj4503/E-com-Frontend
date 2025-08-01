@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./ProductNoti.css";
+import "./global.css";
 import Navbar from "./Navbar";
-
 
 const ProductNoti = () => {
   const [products, setProducts] = useState([]);
@@ -39,29 +38,29 @@ const ProductNoti = () => {
   return (
     <>
       <Navbar/>
-      <div className="product-container">
+      <div className="productnoti-main-container">
         {products.length === 0 ? (
-          <div className="no-products">
+          <div className="productnoti-no-products">
             <h2>No pending requests</h2>
-            <button className="back-btn btn-secondary" onClick={handleBackToHome}>Back to Home Page</button>
+            <button className="productnoti-back-btn" onClick={handleBackToHome}>Back to Home Page</button>
           </div>
         ) : (
           products.map(product => (
-            <div key={product._id} className="product-box">
-               <div className="product-image-container-show">
+            <div key={product._id} className="productnoti-box">
+               <div className="productnoti-image-container">
                 {product.image && (
                   <img 
                     src={`https://e-com-backend-w8yy.onrender.com/uploads/${product.image}`} 
                     alt={product.name} 
-                    className="product-image" 
+                    className="productnoti-image" 
                   />
                 )}
                 </div>
-              <h2>{product.name}</h2>
-              <p>{product.description}</p>
-              <p>Price: ₹{product.price}</p>
-              <button className="noti-btn-ap btn-primary" onClick={() => updateProductStatus(product._id, 'active')}>Approve</button>
-              <button className="noti-btn-re btn-danger" onClick={() => updateProductStatus(product._id, 'inactive')}>Reject</button>
+              <h2 className="productnoti-title">{product.name}</h2>
+              <p className="productnoti-desc">{product.description}</p>
+              <p className="productnoti-price">Price: ₹{product.price}</p>
+              <button className="productnoti-approve-btn" onClick={() => updateProductStatus(product._id, 'active')}>Approve</button>
+              <button className="productnoti-reject-btn" onClick={() => updateProductStatus(product._id, 'inactive')}>Reject</button>
             </div>
           ))
         )}

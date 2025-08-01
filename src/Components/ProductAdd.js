@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ProductAdd.css'; 
+import "./global.css"; 
 import Navbar from './Navbar';
 
 const ProductAdd = () => {
@@ -15,10 +15,8 @@ const ProductAdd = () => {
         formData.append('description', description);
         formData.append('price', price);
 
-         
         for (let i = 0; i < image.length; i++) {
             formData.append('image', image[i]);
-            console.log(formData, image[i]);
         }
 
         try {
@@ -28,7 +26,6 @@ const ProductAdd = () => {
             });
 
             if (response.ok) {
-                console.log('Product added successfully');
                 alert('Product Request Sent Successfully');
                 window.location.reload();
             } else {
@@ -40,60 +37,57 @@ const ProductAdd = () => {
     }
 
     return (
-        <div>
+        <div className="productadd-main-bg">
             <Navbar />
-            <div className="product-add-container">
-                <h1>Add Product</h1>
+            <div className="productadd-container">
+                <h1 className="productadd-title">Add Product</h1>
                 <form onSubmit={handleSubmit}>
-                    <div className="pr-form-group">
-                        <label htmlFor="name">Name</label>
+                    <div className="productadd-form-group">
+                        <label htmlFor="name" className="productadd-label">Name</label>
                         <input 
                             type="text" 
-                            className="form-control" 
+                            className="productadd-control" 
                             id="name" 
                             value={name} 
                             onChange={(e) => setName(e.target.value)} 
                         />
                     </div>
-                    <div className="pr-form-group">
-                        <label htmlFor="description">Description</label>
+                    <div className="productadd-form-group">
+                        <label htmlFor="description" className="productadd-label">Description</label>
                         <input 
                             type="text" 
-                            className="form-control" 
+                            className="productadd-control" 
                             id="description" 
                             value={description} 
                             onChange={(e) => setDescription(e.target.value)} 
                         />
                     </div>
-                    <div className="pr-form-group">
-                        <label htmlFor="price">Price In INR</label>
+                    <div className="productadd-form-group">
+                        <label htmlFor="price" className="productadd-label">Price In INR</label>
                         <input 
                             type="text" 
-                            className="form-control" 
+                            className="productadd-control" 
                             id="price" 
                             value={price} 
                             onChange={(e) => setPrice(e.target.value)} 
                         />
                     </div>
-                    <div className="pr-form-group">
-                        <label htmlFor="image">Image</label>
+                    <div className="productadd-form-group">
+                        <label htmlFor="image" className="productadd-label">Image</label>
                         <input 
                             type="file" 
-                            className="form-control" 
+                            className="productadd-control" 
                             id="image"
                             multiple 
                             onChange={(e) => setImage(e.target.files)}
                         />
                     </div>
-                    <button type="submit" className="pr-btn btn-primary">Submit</button>
+                    <button type="submit" className="productadd-btn">Submit</button>
                 </form>
-                <br />
-                <br />
-                <br />
-                <button className="pr-home btn-primery" onClick={() => window.location.href = '/home'}>Back To Home</button>
+                <button className="productadd-home-btn" onClick={() => window.location.href = '/home'}>Back To Home</button>
             </div>
         </div>
     )
 }
 
-export default ProductAdd; 
+export default ProductAdd;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./UserNoti.css";
+import "./global.css";
 import Navbar from "./Navbar";
-
 
 const UserNoti = () => {
   const [Users, setUsers] = useState([]);
@@ -36,27 +35,24 @@ const UserNoti = () => {
       window.location.href = '/home';
     };
 
-
-
-
   return (
     <>
     <Navbar/>
-      <div className="product-container">
+      <div className="usernoti-main-container">
       {Users.length === 0 ? (
-          <div className="no-products">
+          <div className="usernoti-no-users">
             <h2>No pending requests</h2>
-            <button className="back-btn btn-secondary" onClick={handleBackToHome}>Back to Home Page</button>
+            <button className="usernoti-back-btn" onClick={handleBackToHome}>Back to Home Page</button>
           </div>
         ) : (
         Users.map(User => (
-          <div key={User._id} className="product-box">
-            <h2>Name : {User.name}</h2>
-            <p>Username : {User.username}</p>
-            <p>Email : {User.email}</p>
-            <p>Phone Number : {User.phonenumber}</p>
-            <button className="noti-btn-rec btn-primary" onClick={() => updateUserStatus(User._id, 'active')}>Approve</button>
-            <button className="noti-btn-re btn-danger" onClick={() => updateUserStatus(User._id, 'inactive')}>Reject</button>
+          <div key={User._id} className="usernoti-box">
+            <h2 className="usernoti-title">Name : {User.name}</h2>
+            <p className="usernoti-desc">Username : {User.username}</p>
+            <p className="usernoti-desc">Email : {User.email}</p>
+            <p className="usernoti-desc">Phone Number : {User.phonenumber}</p>
+            <button className="usernoti-approve-btn" onClick={() => updateUserStatus(User._id, 'active')}>Approve</button>
+            <button className="usernoti-reject-btn" onClick={() => updateUserStatus(User._id, 'inactive')}>Reject</button>
           </div>
         )))}
       </div>

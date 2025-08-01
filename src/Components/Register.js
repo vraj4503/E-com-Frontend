@@ -77,32 +77,31 @@ function Register() {
     };
 
     return (
-        <div className="register-main">
+        <div className="register-section-main">
             <ToastContainer />
-            <div className="register-card">
-                <div className="register-left">
-                    <h2 className='form-title'>Create Account</h2>
-
+            <div className="register-section-card">
+                <div className="register-section-left">
+                    <h2 className='register-section-title'>Create Account</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="form-row">
-                            <div className="form-group">
-                                <label htmlFor="name" className="form-label">First Name</label>
+                        <div className="register-section-row">
+                            <div className="register-section-group">
+                                <label htmlFor="name" className="register-section-label">First Name</label>
                                 <input
                                     type="text"
                                     placeholder="Enter your first name"
-                                    className="form-control"
+                                    className="register-section-control"
                                     id="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="username" className="form-label">Last Name</label>
+                            <div className="register-section-group">
+                                <label htmlFor="username" className="register-section-label">Last Name</label>
                                 <input
                                     type="text"
                                     placeholder="Enter your last name"
-                                    className="form-control"
+                                    className="register-section-control"
                                     id="username"
                                     value={formData.username}
                                     onChange={handleChange}
@@ -110,50 +109,50 @@ function Register() {
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email" className="form-label">Email Address</label>
+                        <div className="register-section-group">
+                            <label htmlFor="email" className="register-section-label">Email Address</label>
                             <input
                                 type="email"
                                 placeholder="Enter your email address"
-                                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                                className={`register-section-control ${errors.email ? 'register-section-invalid' : ''}`}
                                 id="email"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
                             />
-                            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                            {errors.email && <div className="register-section-feedback">{errors.email}</div>}
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="username2" className="form-label">Username</label>
+                        <div className="register-section-group">
+                            <label htmlFor="username2" className="register-section-label">Username</label>
                             <input
                                 type="text"
                                 placeholder="Choose a username"
-                                className="form-control"
+                                className="register-section-control"
                                 id="username2"
                                 value={formData.username2 || ''}
                                 onChange={e => setFormData({ ...formData, username2: e.target.value })}
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="password" className="form-label">Password</label>
+                        <div className="register-section-group">
+                            <label htmlFor="password" className="register-section-label">Password</label>
                             <input
                                 type="password"
                                 placeholder="Create a strong password"
-                                className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                                className={`register-section-control ${errors.password ? 'register-section-invalid' : ''}`}
                                 id="password"
                                 value={formData.password}
                                 onChange={handleChange}
                                 required
                             />
-                            {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                            {errors.password && <div className="register-section-feedback">{errors.password}</div>}
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="phonenumber" className="form-label">Phone Number</label>
+                        <div className="register-section-group">
+                            <label htmlFor="phonenumber" className="register-section-label">Phone Number</label>
                             <input
                                 type="tel"
                                 placeholder="Enter your phone number"
-                                className="form-control"
+                                className="register-section-control"
                                 id="phonenumber"
                                 value={formData.phonenumber}
                                 onChange={handleChange}
@@ -162,7 +161,7 @@ function Register() {
                                 required
                             />
                         </div>
-                        <div className="form-group checkbox-group">
+                        <div className="register-section-checkbox-row">
                             <input
                                 type="checkbox"
                                 id="roleAdmin"
@@ -170,17 +169,17 @@ function Register() {
                                 checked={formData.role === 'admin'}
                                 onChange={(e) => setFormData({ ...formData, role: e.target.checked ? 'admin' : 'user' })}
                             />
-                            <label htmlFor="roleAdmin" className="checkbox-label">Register as Administrator</label>
+                            <label htmlFor="roleAdmin" className="register-section-checkbox-label">Register as Administrator</label>
                         </div>
-                        <button type="submit" className="btn btn-gradient">Create Account</button>
+                        <button type="submit" className="register-section-btn">Create Account</button>
                     </form>
-                    <div className="divider">
+                    <div className="register-section-divider">
                         <span>Already have an account?</span>
                     </div>
-                    <Link to='/login' className="btn btn-outline">Sign In</Link>
+                    <Link to='/login' className="register-section-outline-btn">Sign In</Link>
                 </div>
-                <div className="register-right">
-                    <div className="register-logo">
+                <div className="register-section-right">
+                    <div className="register-section-logo">
                         <img src={require('./register-illustration.png')} alt="Register Illustration" />
                     </div>
                 </div>

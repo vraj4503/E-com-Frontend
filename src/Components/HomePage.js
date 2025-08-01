@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import ProductList from "./ProductList";
 import AddProductButton from "./AddProductButton";
-import "./HomePage.css";
+import "./global.css";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -19,10 +19,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="home-main-bg">
       <Navbar role={role} />
-      <div className="centered-container">
-        <h1>Products</h1>
+      <div className="home-center-container">
+        <h1 className="home-title">Products</h1>
         <ProductList products={products} />
         <AddProductButton />
       </div>
