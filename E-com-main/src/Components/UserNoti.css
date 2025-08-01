@@ -1,0 +1,60 @@
+.User-box {
+    border: 1px solid #860000;
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.product-box {
+    border: 3px solid #860000;
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px;
+    padding: 10px;
+}
+
+.noti-btn-ap {
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.noti-btn-re {
+    background-color: #f80404;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+.back-btn {
+    background-color: #3b5067;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.no-products {
+    text-align: center;
+    color: #860000;
+    font-size: 20px;
+    margin-top: 200px;
+}

@@ -1,7 +1,7 @@
+// filepath: c:\Users\VrajPrajapati\Desktop\E-com-main\src\Components\ProductNoti.js
 import React, { useEffect, useState } from "react";
 import "./ProductNoti.css";
 import Navbar from "./Navbar";
-
 
 const ProductNoti = () => {
   const [products, setProducts] = useState([]);

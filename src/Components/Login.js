@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Login.css';
+import './global.css';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,11 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [remember, setRemember] = useState(false);
 
     const login = async (email, password) => {
         try {
-            const response = await axios.post('http://localhost:3500/api/login', { email, password });
-            console.log('Response:', response.data); 
+            const response = await axios.post('https://e-com-backend-w8yy.onrender.com/api/login', { email, password });
             if (response.data.success) {
                 const user = response.data.user;
                 if (user.status === 'active') {
@@ -26,7 +27,6 @@ function Login() {
                 toast.error(response.data.message);
             }
         } catch (error) {
-            console.error('Error:', error); 
             toast.error('Login failed');
         }
     };
@@ -37,49 +37,59 @@ function Login() {
     };
 
     return (
-        <div className="container-center">
+        <div className="register-main">
             <ToastContainer />
-            <div className="form-container">
-                <h2 className='form-title'>Login</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3 text-start">
-                        <label htmlFor="email" className="form-label">
-                            <strong>Email Id / Username</strong>
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Enter Email"
-                            className="form-control"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
+            <div className="register-card">
+                <div className="register-left">
+                    <h2 className='form-title'>Sign In</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="email" className="form-label">Email Address</label>
+                            <input
+                                type="email"
+                                placeholder="Enter your email address"
+                                className="form-control"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input
+                                type="password"
+                                placeholder="Enter your password"
+                                className="form-control"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="form-group checkbox-group">
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                                checked={remember}
+                                onChange={() => setRemember(!remember)}
+                            />
+                            <label htmlFor="rememberMe" className="checkbox-label">Remember me</label>
+                        </div>
+                        <button type="submit" className="btn btn-gradient">Sign In</button>
+                    </form>
+                    <div className="divider">
+                        <span>Don't have an account?</span>
                     </div>
-                    <div className="mb-3 text-start">
-                        <label htmlFor="password" className="form-label">
-                            <strong>Password</strong>
-                        </label>
-                        <input
-                            type="password"
-                            placeholder="Enter Password"
-                            className="form-control"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                    <Link to='/register' className="btn btn-outline">Register</Link>
+                </div>
+                <div className="register-right">
+                    <div className="register-logo">
+                        <img src={require('./register-illustration.png')} alt="Login Illustration" />
                     </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
-                    <br />
-                    <br />
-                    <br />
-                    <p>Don't have an account ? </p>
-                    <button type="button" className="btn btn-secondary" onClick={() => window.location.href = '/register'}>Register</button>
-                </form>
+                </div>
             </div>
         </div>
-
     );
 }
 

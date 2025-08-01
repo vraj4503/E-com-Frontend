@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './global.css'; 
+import './Register.css'; 
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -77,44 +77,33 @@ function Register() {
     };
 
     return (
-        <div className="register-main">
+        <div>
             <ToastContainer />
-            <div className="register-card">
-                <div className="register-left">
-                    <h2 className='form-title'>Create Account</h2>
-
+            <div className="container-center">
+                <div className="form-container">
+                    <h2 className='form-title'>Register</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="form-row">
-                            <div className="form-group">
-                                <label htmlFor="name" className="form-label">First Name</label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter your first name"
-                                    className="form-control"
-                                    id="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="username" className="form-label">Last Name</label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter your last name"
-                                    className="form-control"
-                                    id="username"
-                                    value={formData.username}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="name" className="form-label">
+                                <strong>Name</strong>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Enter Name"
+                                className="form-control"
+                                id="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                            />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email" className="form-label">Email Address</label>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="email" className="form-label">
+                                <strong>Email Id</strong>
+                            </label>
                             <input
                                 type="email"
-                                placeholder="Enter your email address"
+                                placeholder="Enter Email"
                                 className={`form-control ${errors.email ? 'is-invalid' : ''}`}
                                 id="email"
                                 value={formData.email}
@@ -123,23 +112,27 @@ function Register() {
                             />
                             {errors.email && <div className="invalid-feedback">{errors.email}</div>}
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="username2" className="form-label">Username</label>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="username" className="form-label">
+                                <strong>Username</strong>
+                            </label>
                             <input
                                 type="text"
-                                placeholder="Choose a username"
+                                placeholder="Enter Username"
                                 className="form-control"
-                                id="username2"
-                                value={formData.username2 || ''}
-                                onChange={e => setFormData({ ...formData, username2: e.target.value })}
+                                id="username"
+                                value={formData.username}
+                                onChange={handleChange}
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="password" className="form-label">Password</label>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="password" className="form-label">
+                                <strong>Password</strong>
+                            </label>
                             <input
                                 type="password"
-                                placeholder="Create a strong password"
+                                placeholder="Enter Password"
                                 className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                                 id="password"
                                 value={formData.password}
@@ -148,11 +141,13 @@ function Register() {
                             />
                             {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="phonenumber" className="form-label">Phone Number</label>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="phonenumber" className="form-label">
+                                <strong>Phone Number</strong>
+                            </label>
                             <input
                                 type="tel"
-                                placeholder="Enter your phone number"
+                                placeholder="Enter Phone Number"
                                 className="form-control"
                                 id="phonenumber"
                                 value={formData.phonenumber}
@@ -162,27 +157,25 @@ function Register() {
                                 required
                             />
                         </div>
-                        <div className="form-group checkbox-group">
-                            <input
-                                type="checkbox"
-                                id="roleAdmin"
-                                name="role"
-                                checked={formData.role === 'admin'}
-                                onChange={(e) => setFormData({ ...formData, role: e.target.checked ? 'admin' : 'user' })}
-                            />
-                            <label htmlFor="roleAdmin" className="checkbox-label">Register as Administrator</label>
+                        <div className="mb-3 text-start">
+                            <label htmlFor="role" className="form-label">
+                                <strong>Register as admin?</strong>
+                            </label>
+                            <div>
+                                <input
+                                    type="checkbox"
+                                    id="roleAdmin"
+                                    name="role"
+                                    checked={formData.role === 'admin'}
+                                    onChange={(e) => setFormData({ ...formData, role: e.target.checked ? 'admin' : 'user' })}
+                                />
+                                <label htmlFor="roleAdmin">Admin</label>
+                            </div>
                         </div>
-                        <button type="submit" className="btn btn-gradient">Create Account</button>
+                        <button type="submit" className="btn btn-primary">Register</button>
                     </form>
-                    <div className="divider">
-                        <span>Already have an account?</span>
-                    </div>
-                    <Link to='/login' className="btn btn-outline">Sign In</Link>
-                </div>
-                <div className="register-right">
-                    <div className="register-logo">
-                        <img src={require('./register-illustration.png')} alt="Register Illustration" />
-                    </div>
+                    <p className='container my-2'>Already have an account ?</p>
+                    <Link to='/login' className="btn btn-secondary">Login</Link>
                 </div>
             </div>
         </div>

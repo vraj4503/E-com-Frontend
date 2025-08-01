@@ -15,10 +15,8 @@ const ProductAdd = () => {
         formData.append('description', description);
         formData.append('price', price);
 
-         
         for (let i = 0; i < image.length; i++) {
             formData.append('image', image[i]);
-            console.log(formData, image[i]);
         }
 
         try {
@@ -28,7 +26,6 @@ const ProductAdd = () => {
             });
 
             if (response.ok) {
-                console.log('Product added successfully');
                 alert('Product Request Sent Successfully');
                 window.location.reload();
             } else {
@@ -87,13 +84,10 @@ const ProductAdd = () => {
                     </div>
                     <button type="submit" className="pr-btn btn-primary">Submit</button>
                 </form>
-                <br />
-                <br />
-                <br />
-                <button className="pr-home btn-primery" onClick={() => window.location.href = '/home'}>Back To Home</button>
+                <button className="pr-home btn-primary" onClick={() => window.location.href = '/home'}>Back To Home</button>
             </div>
         </div>
     )
 }
 
-export default ProductAdd; 
+export default ProductAdd;

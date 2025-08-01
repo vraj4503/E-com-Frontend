@@ -12,7 +12,7 @@ const HomePage = () => {
     const userRole = sessionStorage.getItem("role");
     setRole(userRole);
 
-    fetch("http://localhost:3500/api/products")
+    fetch("https://e-com-backend-w8yy.onrender.com/api/products")
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error("Error fetching products:", error));
