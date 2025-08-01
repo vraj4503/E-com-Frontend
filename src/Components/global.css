@@ -318,3 +318,232 @@ body {
   display: block;
   margin: 0 auto;
 }
+
+/* ====== NAVBAR ====== */
+.navbar-main {
+  width: 100%;
+  background: #18191a;
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-product-btn,
+.navbar-user-btn {
+  background: linear-gradient(90deg, #ff9800 0%, #757575 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,152,0,0.10);
+  transition: background 0.2s;
+}
+
+.navbar-product-btn:hover,
+.navbar-user-btn:hover {
+  background: linear-gradient(90deg, #757575 0%, #ff9800 100%);
+  color: #18191a;
+}
+
+.navbar-profile-btn {
+  background: #232526;
+  color: #ff9800;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  margin-left: 1rem;
+  transition: background 0.2s;
+}
+
+.navbar-profile-btn:hover .navbar-profile-dropdown {
+  display: block;
+}
+
+.navbar-profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  background: #232526;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+  min-width: 220px;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.navbar-profile-dropdown a {
+  display: block;
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 0.98rem;
+  margin-bottom: 0.7rem;
+  transition: color 0.2s;
+}
+
+.navbar-profile-dropdown a:last-child {
+  color: #ff9800;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.navbar-profile-dropdown a:hover {
+  color: #ff9800;
+}
+
+/* ====== HOME PAGE ====== */
+.home-main-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.home-center-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #18191a;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  padding: 2rem 2rem 2.5rem 2rem;
+}
+
+.home-title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ====== PRODUCT LIST ====== */
+.productlist-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.productlist-card {
+  background: #232526;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 16px rgba(44,62,80,0.18);
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem;
+  transition: box-shadow 0.2s;
+}
+
+.productlist-card:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.25);
+}
+
+.productlist-image-wrap {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #18191a;
+}
+
+.productlist-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #232526;
+  background: #18191a;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.18);
+}
+
+.productlist-details {
+  width: 100%;
+  text-align: left;
+}
+
+.productlist-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.productlist-desc {
+  font-size: 0.98rem;
+  color: #bdbdbd;
+  margin-bottom: 0.7rem;
+}
+
+.productlist-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productlist-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ff9800;
+}
+
+.productlist-buy-btn {
+  background: linear-gradient(90deg, #ff9800 0%, #757575 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.productlist-buy-btn:hover {
+  background: linear-gradient(90deg, #757575 0%, #ff9800 100%);
+  color: #18191a;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .home-center-container {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .productlist-main-container {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 1.3rem;
+  }
+  .productlist-card {
+    width: 98vw;
+    padding: 0.7rem;
+  }
+}
