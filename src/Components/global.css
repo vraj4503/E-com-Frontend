@@ -415,6 +415,10 @@ body {
   gap: 2rem;
   justify-content: center;
   padding: 2rem 0;
+  /* Modern gradient background */
+  background: linear-gradient(135deg, #a770ef 0%, #f6d365 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.10);
 }
 
 .shop-product-card {
