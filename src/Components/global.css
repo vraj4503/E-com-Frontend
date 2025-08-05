@@ -368,10 +368,7 @@ body {
   position: relative;
   margin-left: 1rem;
   transition: background 0.2s;
-}
-
-.navbar-profile-btn:hover .navbar-profile-dropdown {
-  display: block;
+  outline: none;
 }
 
 .navbar-profile-dropdown {
@@ -387,6 +384,10 @@ body {
   z-index: 100;
 }
 
+.navbar-profile-dropdown.show {
+  display: block;
+}
+
 .navbar-profile-dropdown a {
   display: block;
   color: #eaeaea;
@@ -394,6 +395,7 @@ body {
   font-size: 0.98rem;
   margin-bottom: 0.7rem;
   transition: color 0.2s;
+  cursor: pointer;
 }
 
 .navbar-profile-dropdown a:last-child {
@@ -547,3 +549,4 @@ body {
     padding: 0.7rem;
   }
 }
+
